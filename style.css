@@ -1,0 +1,242 @@
+/* ---------- Tokens ---------- */
+:root {
+  --bg: #e8edf1;
+  --ink: #16202e;
+  --muted: #4d5b6c;
+  --accent: #2748e6;
+  --accent-ink: #ffffff;
+  --line: #c3ccd6;
+
+  --display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
+  --text: "Source Serif 4", Georgia, "Times New Roman", serif;
+
+  --gap: clamp(1.25rem, 4vw, 3rem);
+}
+
+/* ---------- Base ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--text);
+  font-size: 1.125rem;
+  line-height: 1.65;
+}
+
+h1, h2, h3 {
+  font-family: var(--display);
+  line-height: 1.05;
+  margin: 0;
+}
+
+p { margin: 0 0 1em; max-width: 62ch; }
+
+a { color: var(--accent); text-underline-offset: 0.2em; }
+a:hover { text-decoration-thickness: 2px; }
+
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.skip {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  background: var(--ink);
+  color: #fff;
+  padding: 0.5rem 1rem;
+  z-index: 10;
+}
+.skip:focus { top: 1rem; }
+
+/* ---------- Layout ---------- */
+.layout {
+  display: grid;
+  grid-template-columns: minmax(16rem, 26rem) 1fr;
+  gap: var(--gap);
+  max-width: 78rem;
+  margin: 0 auto;
+  padding: 0 var(--gap);
+}
+
+.side {
+  position: sticky;
+  top: 0;
+  align-self: start;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: var(--gap) 0;
+}
+
+main { padding: var(--gap) 0 4rem; }
+
+main section { margin-bottom: 5rem; }
+
+/* ---------- Sidebar ---------- */
+.name {
+  font-size: clamp(3.5rem, 7vw, 6.5rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: var(--accent);
+}
+
+.role {
+  margin-top: 1rem;
+  color: var(--muted);
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  display: inline-block;
+  padding: 0.25rem 0;
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: 1.25rem;
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+}
+nav a:hover { border-bottom-color: var(--accent); }
+
+/* ---------- Intro ---------- */
+.intro { padding-top: 3vh; }
+
+.lead {
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: clamp(1.75rem, 3.6vw, 2.75rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  max-width: 24ch;
+  margin-bottom: 1.25rem;
+}
+
+.button {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-family: var(--display);
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: 0.25rem;
+}
+.button:hover { background: var(--ink); }
+
+/* ---------- Section headings ---------- */
+h2 {
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.5rem;
+  padding-top: 1rem;
+  border-top: 2px solid var(--ink);
+}
+
+/* ---------- Projects ---------- */
+.project {
+  display: grid;
+  grid-template-columns: 14rem 1fr;
+  gap: 1.5rem;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid var(--line);
+}
+.project:first-of-type { padding-top: 0; }
+
+.thumb {
+  aspect-ratio: 4 / 3;
+  border-radius: 0.25rem;
+}
+.thumb-a { background: linear-gradient(135deg, #2748e6 0 50%, #16202e 50% 100%); }
+.thumb-b { background: radial-gradient(circle at 30% 40%, #f2b84b 0 22%, #16202e 23% 100%); }
+.thumb-c { background: repeating-linear-gradient(90deg, #2748e6 0 12px, #e8edf1 12px 24px); }
+
+.project h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.tags {
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+}
+
+/* ---------- Skills ---------- */
+.skills {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.skills li {
+  padding: 0.35rem 0.9rem;
+  border: 2px solid var(--ink);
+  border-radius: 2rem;
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+/* ---------- Contact ---------- */
+.mail {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(1.5rem, 3.5vw, 2.25rem);
+  letter-spacing: -0.02em;
+}
+
+.links {
+  list-style: none;
+  margin: 1rem 0 0;
+  padding: 0;
+  display: flex;
+  gap: 1.5rem;
+}
+
+footer { color: var(--muted); font-size: 0.95rem; }
+footer p { margin: 0; }
+
+/* ---------- Tablet and mobile ---------- */
+@media (max-width: 56rem) {
+  .layout { grid-template-columns: 1fr; gap: 0; }
+
+  .side {
+    position: static;
+    height: auto;
+    gap: 1.5rem;
+  }
+
+  .name br { display: none; }
+
+  nav ul { display: flex; flex-wrap: wrap; gap: 0.25rem 1.5rem; }
+
+  main section { margin-bottom: 3.5rem; }
+}
+
+@media (max-width: 36rem) {
+  body { font-size: 1.0625rem; }
+
+  .project { grid-template-columns: 1fr; }
+}
+
+/* ---------- Motion preference ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
